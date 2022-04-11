@@ -1,18 +1,18 @@
 const socket = io();
 
 const startEl = document.querySelector('#start');
-const chatWrapperEl = document.querySelector('#game-wrapper');
+const gameWrapperEl = document.querySelector('#game-wrapper');
 const usernameForm = document.querySelector('#username-form');
-const messagesEl = document.querySelector('#messages'); // ul element containing all messages
-const messageForm = document.querySelector('#message-form');
-const messageEl = document.querySelector('#message');
+//const messagesEl = document.querySelector('#messages'); // ul element containing all messages
+const gameForm = document.querySelector('#form-div');
+const gameUl = document.querySelector('#gameUl');
 
 
 let room = null;
 let username = null;
 
 
-const addMessageToChat = (message, ownMsg = false) => {
+const addVirus = (message, ownMsg = false) => {
 	// create new `li` element
 	const liEl = document.createElement('li');
 
@@ -27,16 +27,19 @@ const addMessageToChat = (message, ownMsg = false) => {
 	const time = moment(message.timestamp).format('HH:mm:ss');
 
 	// set content of `li` element
+	/*
 	liEl.innerHTML = ownMsg
 		? message.content
 		: `<span class="user">${message.username}</span><span class="content">${message.content}</span><span class="time">${time}</span>`;
+	*/
 
 	// append `li` element to `#messages`
-	messagesEl.appendChild(liEl);
+	//messagesEl.appendChild(liEl);
 
 	// scroll `li` element into view
 	liEl.scrollIntoView();
 }
+
 
 const addNoticeToChat = notice => {
 	const liEl = document.createElement('li');
@@ -44,7 +47,7 @@ const addNoticeToChat = notice => {
 
 	liEl.innerText = notice;
 
-	messagesEl.appendChild(liEl);
+	//messagesEl.appendChild(liEl);
 	liEl.scrollIntoView();
 }
 // handels points
@@ -121,7 +124,7 @@ socket.on('room:randomize', (row, column) => {
 })
 
 socket.on('room:point', (username, userpoint, time) => {
-	addNoticeToChat(`Damage done from ${username} in ${userpoint}`);
+	//addNoticeToChat(`Damage done from ${username} in ${userpoint}`);
 	addPoints(username, userpoint, time);
 })
 
@@ -129,7 +132,7 @@ socket.on('room:point', (username, userpoint, time) => {
 socket.on('chat:message', message => {
 	console.log("Someone said something:", message);
 
-	addMessageToChat(message);
+	addVirus(message);
 });
 
 // get username and room from form and emit `user:joined` and then show chat
@@ -151,13 +154,13 @@ usernameForm.addEventListener('submit', e => {
 			startEl.classList.add('hide');
 
 			// show chat view
-			chatWrapperEl.classList.remove('hide');
+			gameWrapperEl.classList.remove('hide');
 
 			// set room name as chat title chat-title
 			document.querySelector('#room').innerText = status.roomName;
 
 			// focus on inputMessage
-			messageEl.focus();
+			//gameUl.focus();
 
 			// update list of users in room
 			updateUserList(status.users);
@@ -166,17 +169,17 @@ usernameForm.addEventListener('submit', e => {
 });
 
 // send message to server
-messageForm.addEventListener('submit', e => {
+gameForm.addEventListener('submit', e => {
 	e.preventDefault();
 
-	if (!messageEl.value) {
+	if (!gameUl.value) {
 		return;
 	}
 
 	const msg = {
 		username,
 		room,
-		content: messageEl.value,
+		content: gameUl.value,
 		timestamp: Date.now(),
 	}
 
@@ -184,11 +187,11 @@ messageForm.addEventListener('submit', e => {
 	socket.emit('chat:message', msg);
 
 	// add message to chat
-	addMessageToChat(msg, true);
+	addVirus(msg, true);
 
 	// clear message input element and focus
-	messageEl.value = '';
-	messageEl.focus();
+	gameUl.value = '';
+	gameUl.focus();
 });
 
 
@@ -255,6 +258,7 @@ const changeVirusPosition = (row, column) => {
 
 //  let userScore = 10;
 //  let computerScore = 10;
+/*
 let userPoint = 0
 
 
@@ -277,6 +281,7 @@ function game() {
 
 game();
 
+*/
 
 
 

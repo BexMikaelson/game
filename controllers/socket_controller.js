@@ -68,6 +68,10 @@ const handleUserJoined = function (username, room_id, callback) {
   // b) add socket to room's `users` object
   room.users[this.id] = username;
 
+  if (room.users === 2) {
+    return;
+  }
+
   // let everyone know that someone has connected to the chat
   this.broadcast.to(room.id).emit("user:connected", username);
 

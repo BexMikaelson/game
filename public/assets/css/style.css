@@ -62,12 +62,12 @@
         color: white;
     }
 
-    /*****/
 
+/*
 #message-wrapper {
 	flex-grow: 1;
 	overflow-y: scroll;
-	/* height: calc(100vh - 2.25rem - 2px); */
+	/* height: calc(100vh - 2.25rem - 2px); 
 }
 
 #messages {
@@ -86,12 +86,14 @@
 	padding: 0.5rem 0.75rem;
 	align-self: flex-start;
 }
-
+*/
+/*
 #messages .message.you {
 	background-color: cornflowerblue;
 	color: white;
 	align-self: flex-end;
 }
+
 
 #messages .message .time {
 	font-size: 60%;
@@ -106,17 +108,18 @@
 #messages .notice {
 	color: #555;
 }
+*/
 
 #users {
 	flex-basis: 20%;
 }
-
+/*
 #users h2 {
 	background-color: cornflowerblue;
 	padding: 0.5rem 0.75rem;
 	color: white;
 }
-
+*/
 #users ul {
 	margin: 0;
 	padding: 0.5rem 0.75rem;
@@ -128,12 +131,14 @@
     display: grid;
     grid-template-columns: 75px 75px 75px 75px 75px 75px 75px 75px;
     grid-template-rows: 75px 75px 75px 75px 75px 75px 75px;
-    border: 2px solid pink;
+    /*border: 2px solid pink;*/
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    background-image: url("https://drive.google.com/uc?export=download&id=1M42mkJo_ILpyt1penWJLFAGwyycD9oKq");
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
+    /*background-image: url("https://drive.google.com/uc?export=download&id=1M42mkJo_ILpyt1penWJLFAGwyycD9oKq");
+    */
+    /*background-repeat: no-repeat;
+    background-size: cover;
+    */
+    height: 100vh;
         /*text-align: center;*/
         
     }
@@ -141,6 +146,7 @@
 .scoreboard{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    background-color: grey;
 
 }
 
