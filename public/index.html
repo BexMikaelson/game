@@ -37,34 +37,27 @@
 				</div>
 
 				<button type="submit" class="btn btn-primary">Connect!</button>
-			</form><!-- /#username-form -->
-		</div><!-- /#start -->
+			</form>
+		</div>
 
 
 		<div id="game-wrapper" class="hide">
 			<div id="game">
 				<h2 id="game-title">Virus Destroyer</h2>
 				<div id="game-div">
-					<!-- here is chat -->
 					<ul id="gameUl">
-					</ul><!-- /#messages -->
-				</div><!-- /#messages-wrapper -->
-
+					</ul>
+				</div>
 
 				<div class="container">
-					
-					 <div class="box"></div>
-					 
+					<div class="d-flex justify-content-center align-items-center">
+						<div class="box">
+							<button role="button" id="startGame" onclick="startGame()">Start game</button>
+						</div>
+					</div>
 				</div>
 				<form id="form-div">
-					<!-- 
-					<div class="input-group">
-						<input type="text" id="message" class="form-control" placeholder="Type something nice...">
-						<button type="submit" class="btn btn-success">Send</button>
-					</div>
-					-->
-				</form>
-			
+				</form>			
 			</div>
 
 
@@ -81,9 +74,9 @@
 						<span class="result-score" data-computer-score>0</span>
 						<p class="bold">Enemy time: <span id="enemy-time">0</span>s</p>
 					</div>
+					<h5 class="p-2">Users online</h5>
 					<ul id="online-users"></ul>
 				</div>
-
 			</div>
 		</div>
 	</div>
